@@ -24,6 +24,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 public:
+	//malla del bloque
 	UStaticMeshComponent* MeshBloque;
 	// Es * eso es punturo
 

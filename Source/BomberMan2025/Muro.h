@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Muro.generated.h"
-
+class UStaticMeshComponent;
 UCLASS()
 class BOMBERMAN2025_API AMuro : public AActor
 {
@@ -22,5 +22,10 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+public:
+	//malla del Muro
+	UStaticMeshComponent* MeshMuro;
+	// Es * eso es punturo
 
+	float velocidad;
 };

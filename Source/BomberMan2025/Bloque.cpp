@@ -23,13 +23,15 @@ ABloque::ABloque()
 	FloatSpeed = 5.0f;
 	RotationSpeed = 3.0f;
 
-	bActorLabelEditable = 5.0f;
+	bActorLabelEditable = 1.0f;
 }
 
 // Called when the game starts or when spawned
 void ABloque::BeginPlay()
 {
 	Super::BeginPlay();
+
+
 	
 }
 

@@ -4,6 +4,7 @@
 #include "BomberMan2025Character.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Bloque.h"
+#include "Muro.h"
 
 ABomberMan2025GameMode::ABomberMan2025GameMode()
 {
@@ -18,29 +19,33 @@ ABomberMan2025GameMode::ABomberMan2025GameMode()
 void ABomberMan2025GameMode::BeginPlay()
 {
 	Super::BeginPlay();
-	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloque Spawning"));
+	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloques y Muros en cuadrícula spawneados"));
 
-	// Create a new Enemigo
-	//ABloque* bloque01 = GetWorld()->SpawnActor<ABloque>(ABloque::StaticClass(), FVector(934.0f, 1370.0f, 100.0f), FRotator(0.0f, 0.0f, 0.0f));
-	//ABloque* bloque02 = GetWorld()->SpawnActor<ABloque>(ABloque::StaticClass(), FVector(734.0f, 1370.0f, 50.0f), FRotator(0.0f, 0.0f, 0.0f));
-
+	// Variables para la generación en cuadrícula
+	const float Spacing = 200.0f; // Espaciado configurable
 	int numeroBloqueConMovimiento = 0;
 
-	for (int i = 0; i < 20; i++)
+	// Generar 10 objetos de Bloque
+	for (int i = 0; i < 10; i++)
 	{
+		FVector SpawnLocation = FVector(i * Spacing, 0.0f, 100.0f);
+		FRotator SpawnRotation = FRotator(0.0f, 0.0f, 0.0f);
 
-		ABloque* bloque = GetWorld()->SpawnActor<ABloque>(ABloque::StaticClass(), FVector(500.0f + i * 100, 2500.0f - i * 100, 20.0f), FRotator(0.0f, 0.0f, 0.0f));
-
+		ABloque* bloque = GetWorld()->SpawnActor<ABloque>(ABloque::StaticClass(), SpawnLocation, SpawnRotation);
+		bloque->bPuedeMoverse = (FMath::RandBool() && numeroBloqueConMovimiento < 7);
 
 		if (bloque->bPuedeMoverse)
 		{
 			numeroBloqueConMovimiento++;
 		}
+	}
 
-		if (numeroBloqueConMovimiento >= 7)
-		{
-			bloque->bPuedeMoverse = false;
-		}
+	// Generar 20 objetos de Muro
+	for (int i = 0; i < 20; i++)
+	{
+		FVector SpawnLocation = FVector((i % 5) * Spacing, (i / 5) * Spacing, 150.0f);
+		FRotator SpawnRotation = FRotator(0.0f, 0.0f, 0.0f);
 
+		AMuro* Muro1 = GetWorld()->SpawnActor<AMuro>(AMuro::StaticClass(), SpawnLocation, SpawnRotation);
 	}
 }
