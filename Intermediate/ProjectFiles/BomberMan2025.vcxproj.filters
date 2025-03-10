@@ -62,6 +62,18 @@
     <ClInclude Include="..\..\Source\BomberMan2025\BomberMan2025GameMode.h">
       <Filter>Source\BomberMan2025</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\BomberMan2025\Esfera.cpp">
+      <Filter>Source\BomberMan2025</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\BomberMan2025\Esfera.h">
+      <Filter>Source\BomberMan2025</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\BomberMan2025\EsperaTrampa.cpp">
+      <Filter>Source\BomberMan2025</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\BomberMan2025\EsperaTrampa.h">
+      <Filter>Source\BomberMan2025</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\BomberMan2025\Muro.cpp">
       <Filter>Source\BomberMan2025</Filter>
     </ClCompile>

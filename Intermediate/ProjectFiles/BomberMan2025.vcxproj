@@ -301,6 +301,14 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClInclude Include="..\..\Source\BomberMan2025\BomberMan2025GameMode.h"/>
+    <ClCompile Include="..\..\Source\BomberMan2025\Esfera.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\BomberMan2025\Esfera.h"/>
+    <ClCompile Include="..\..\Source\BomberMan2025\EsperaTrampa.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\BomberMan2025\EsperaTrampa.h"/>
     <ClCompile Include="..\..\Source\BomberMan2025\Muro.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>

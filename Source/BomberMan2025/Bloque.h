@@ -25,6 +25,7 @@ public:
 
 public:
 	//malla del bloque
+	UPROPERTY()
 	UStaticMeshComponent* MeshBloque;
 	// Es * eso es punturo
 

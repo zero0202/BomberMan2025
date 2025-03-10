@@ -5,6 +5,8 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Bloque.h"
 #include "Muro.h"
+#include "Esfera.h"
+
 
 ABomberMan2025GameMode::ABomberMan2025GameMode()
 {
@@ -19,7 +21,7 @@ ABomberMan2025GameMode::ABomberMan2025GameMode()
 void ABomberMan2025GameMode::BeginPlay()
 {
 	Super::BeginPlay();
-	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloques y Muros en cuadrícula spawneados"));
+	
 
 	// Variables para la generación en cuadrícula
 	const float Spacing = 200.0f; // Espaciado configurable
@@ -33,7 +35,7 @@ void ABomberMan2025GameMode::BeginPlay()
 
 		ABloque* bloque = GetWorld()->SpawnActor<ABloque>(ABloque::StaticClass(), SpawnLocation, SpawnRotation);
 		bloque->bPuedeMoverse = (FMath::RandBool() && numeroBloqueConMovimiento < 7);
-
+		GEngine->AddOnScreenDebugMessage(-1,4.0f , FColor::Red, TEXT("Bloques y Muros en cuadrícula spawneados"));
 		if (bloque->bPuedeMoverse)
 		{
 			numeroBloqueConMovimiento++;
@@ -43,9 +45,37 @@ void ABomberMan2025GameMode::BeginPlay()
 	// Generar 20 objetos de Muro
 	for (int i = 0; i < 20; i++)
 	{
-		FVector SpawnLocation = FVector((i % 5) * Spacing, (i / 5) * Spacing, 150.0f);
+		FVector SpawnLocation = FVector(i * Spacing + 1000.0f, (i / 5) * Spacing, 100.0f);
 		FRotator SpawnRotation = FRotator(0.0f, 0.0f, 0.0f);
 
 		AMuro* Muro1 = GetWorld()->SpawnActor<AMuro>(AMuro::StaticClass(), SpawnLocation, SpawnRotation);
+		if (Muro1)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("¡Muro generado!"));
+
+		}
+
+	}
+
+	// Generar 1 objeto de Esfera
+	FVector SpawnLocation = FVector(0.0f, 0.0f, 100.0f);
+	FRotator SpawnRotation = FRotator::ZeroRotator; // Añadir rotación
+	//FActorSpawnParameters SpawnParams;              // Parámetros de spawn (requeridos)
+
+	SpawnedActor = GetWorld()->SpawnActor<AEsfera>(AEsfera::StaticClass(), SpawnLocation, SpawnRotation);
+
+	// para el tiempo
+	FTimerHandle Timer;
+
+	GetWorldTimerManager().SetTimer(Timer, this,&ABomberMan2025GameMode::DestroyActorFunction, 10);
+	SetLifeSpan(10);//podemos cambiar el tiempo
+}
+//funcion destruir 
+void ABomberMan2025GameMode::DestroyActorFunction()
+{
+	
+	if (SpawnedActor != nullptr)
+	{
+		SpawnedActor->Destroy();
 	}
 }

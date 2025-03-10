@@ -3,10 +3,11 @@
 
 #include "Bloque.h"
 #include "Components/StaticMeshComponent.h"
+
 // Sets default values
 ABloque::ABloque()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	MeshBloque = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshBloque"));
@@ -23,7 +24,7 @@ ABloque::ABloque()
 	FloatSpeed = 5.0f;
 	RotationSpeed = 3.0f;
 
-	bActorLabelEditable = 1.0f;
+	bActorLabelEditable = 5.0f;
 }
 
 // Called when the game starts or when spawned

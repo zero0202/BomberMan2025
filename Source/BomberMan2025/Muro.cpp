@@ -18,7 +18,7 @@ AMuro::AMuro()
 	{
 		MeshMuro->SetStaticMesh(ObjetoMeshBloque.Object);
 
-		MeshMuro->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
+		MeshMuro->SetRelativeLocation(FVector(1.0f, 1.0f, 2.0f));
 	}
 	velocidad = 1.0f;
 }

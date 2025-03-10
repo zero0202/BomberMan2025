@@ -14,6 +14,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define BOMBERMAN2025_BomberMan2025GameMode_generated_h
 
+#define FID_BomberMan2025_Source_BomberMan2025_BomberMan2025GameMode_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execDestroyActorFunction);
+
+
 #define FID_BomberMan2025_Source_BomberMan2025_BomberMan2025GameMode_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABomberMan2025GameMode(); \
@@ -39,6 +43,7 @@ public: \
 #define FID_BomberMan2025_Source_BomberMan2025_BomberMan2025GameMode_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_BomberMan2025_Source_BomberMan2025_BomberMan2025GameMode_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_BomberMan2025_Source_BomberMan2025_BomberMan2025GameMode_h_13_INCLASS_NO_PURE_DECLS \
 	FID_BomberMan2025_Source_BomberMan2025_BomberMan2025GameMode_h_13_ENHANCED_CONSTRUCTORS \
 private: \
